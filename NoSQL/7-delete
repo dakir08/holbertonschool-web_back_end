@@ -1,4 +1,6 @@
 // remove all documents
 db.school.remove({
-    name: "Holberton school"
+    name: {
+        $eq: "Holberton school"
+    }
 })
