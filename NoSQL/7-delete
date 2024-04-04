@@ -1,6 +1,4 @@
 // remove all documents
-db.school.remove({
-    name: {
-        $eq: "Holberton school"
-    }
+db.school.deleteMany({
+    name: "Holberton school"
 })
