@@ -35,6 +35,9 @@ class Server:
         """
         Return page
         """
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
+
         indices = index_range(page, page_size)
         start = indices[0]
         end = indices[1]
