@@ -41,7 +41,6 @@ class MRUCache(BaseCaching):
         Get item
         """
         if key is not None and key in self.cache_data:
-            # Move the accessed key to the end to mark it as the most recently used
             self.key_access.remove(key)
             self.key_access.append(key)
             return self.cache_data[key]
