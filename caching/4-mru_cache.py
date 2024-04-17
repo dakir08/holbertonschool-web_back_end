@@ -27,12 +27,12 @@ class MRUCache(BaseCaching):
         if key is None or item is None:
             return
         self.cache_data[key] = item
-        if key not in self.keys:
-            self.keys.append(key)
+        if key not in self.key_access:
+            self.key_access.append(key)
         else:
-            self.keys.append(self.keys.pop(self.keys.index(key)))
-        if len(self.keys) > BaseCaching.MAX_ITEMS:
-            discard = self.keys.pop(-2)
+            self.key_access.append(self.key_access.pop(self.key_access.index(key)))
+        if len(self.key_access) > BaseCaching.MAX_ITEMS:
+            discard = self.key_access.pop(-2)
             del self.cache_data[discard]
             print(f"DISCARD: {discard}")
 
