@@ -15,7 +15,7 @@ class LIFOCache(BaseCaching):
         constructor
         """
         super().__init__()
-        self.keys = []
+        self.stack = []
 
     def put(self, key, item):
         """
