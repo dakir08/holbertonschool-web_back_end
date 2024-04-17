@@ -30,7 +30,8 @@ class MRUCache(BaseCaching):
         if key not in self.key_access:
             self.key_access.append(key)
         else:
-            self.key_access.append(self.key_access.pop(self.key_access.index(key)))
+            self.key_access.append(self.key_access.pop
+                                   (self.key_access.index(key)))
         if len(self.key_access) > BaseCaching.MAX_ITEMS:
             discard = self.key_access.pop(-2)
             del self.cache_data[discard]
