@@ -6,7 +6,7 @@ BasicCache class
 BaseCaching = __import__('base_caching').BaseCaching
 
 
-class BasicCache(BaseCaching):
+class FIFOCache(BaseCaching):
     """
     BasicCache class
     """
