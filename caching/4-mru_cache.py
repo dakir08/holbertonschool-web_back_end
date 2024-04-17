@@ -1,0 +1,48 @@
+#!/usr/bin/python3
+"""
+BasicCache class
+"""
+
+from typing import OrderedDict
+
+
+BaseCaching = __import__('base_caching').BaseCaching
+
+
+class MRUCache(BaseCaching):
+    """
+    BasicCache class LRU
+    """
+    def __init__(self):
+        """
+        constructor
+        """
+        super().__init__()
+        self.key_access = []
+
+    def put(self, key, item):
+        """
+        Save item
+        """
+        if key is None or item is None:
+            return
+        self.cache_data[key] = item
+        if key not in self.keys:
+            self.keys.append(key)
+        else:
+            self.keys.append(self.keys.pop(self.keys.index(key)))
+        if len(self.keys) > BaseCaching.MAX_ITEMS:
+            discard = self.keys.pop(-2)
+            del self.cache_data[discard]
+            print(f"DISCARD: {discard}")
+
+    def get(self, key):
+        """
+        Get item
+        """
+        if key is not None and key in self.cache_data:
+            # Move the accessed key to the end to mark it as the most recently used
+            self.key_access.remove(key)
+            self.key_access.append(key)
+            return self.cache_data[key]
+        return None
