@@ -1,0 +1,9 @@
+[
+  {
+    "model": "gpt-35-16k-fitness-first-model",
+    "api_key": "b47436b785fd41b290802a84530c0d2d",
+    "base_url": "https://onepoint-insurance.openai.azure.com/",
+    "api_type": "azure",
+    "api_version": "2024-02-15-preview"
+  }
+]
